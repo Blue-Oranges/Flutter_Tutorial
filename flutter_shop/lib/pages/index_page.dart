@@ -45,13 +45,14 @@ class _IndexPageState extends State<IndexPage> {
   //当前页面对象
   var currentPage;
 
-  //初始化默认页面 快捷键：init
+  @override
+   //初始化默认页面 快捷键：init
   void initState() { 
     currentPage =tabBodies[currentIndex];
     super.initState();
   }
 
-  @override
+    @override
   Widget build(BuildContext context) {
     return Scaffold( //Scaffold：脚手架，已经搭建好的布局或框架
     
@@ -62,11 +63,12 @@ class _IndexPageState extends State<IndexPage> {
         currentIndex: currentIndex,
         items: bottomTabs,
         onTap: (index){
-          currentIndex=index;
-          currentPage =tabBodies[currentIndex];
+          setState(() {
+            currentIndex=index;
+            currentPage =tabBodies[currentIndex];
+          });
         },
       ),
-
       body: currentPage,
     );
   }
