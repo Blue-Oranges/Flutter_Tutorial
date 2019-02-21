@@ -13,7 +13,8 @@ class _HomePageState extends State<HomePage> {
     return Container(
        child:Scaffold(
          appBar: AppBar(title: Text('美好人间'),),
-         body:Container(
+         body:SingleChildScrollView(
+           child: Container(
            height: 1000,
            child: Column(//采用纵向布局
             children: <Widget>[
@@ -38,6 +39,7 @@ class _HomePageState extends State<HomePage> {
               )
             ],
            ),
+         ),
          )
        ),
     );
