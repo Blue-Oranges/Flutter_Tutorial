@@ -1,6 +1,68 @@
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';//引入dio包
+import '../config/httpHeaders.dart';//引入httpHeaders请求数据
 
+
+class HomePage extends StatefulWidget {
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  String showText ='还没有请求到数据！';
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+       child: Scaffold(
+         appBar: AppBar(title: Text('请求远程数据'),),
+         body: SingleChildScrollView(
+           child: Column(
+             children: <Widget>[
+               RaisedButton(
+                onPressed: (){_Geek();},
+                child: Text('请求数据'),
+               ),
+               Text(showText) 
+             ],
+           ),
+         ),
+       )
+    );
+  }
+
+//调用方法
+ void _Geek(){
+   print('开始向极客时间请求数据.............');
+   getHttp().then((val){
+     setState(() {//改变页面状态的方法 
+       showText =val['data'].toString();
+     });
+   });
+ }
+
+//请求方法
+  Future getHttp() async{
+    try {
+      Response response;
+      Dio dio = new Dio();
+      dio.options.headers =httpHeaders;
+      response =await dio.get("https://time.geekbang.org/serv/v1/column/newAll");
+      print(response);
+      return response.data;
+    } catch (e) {
+      return print(e);
+    }
+  }
+}
+
+//在没有添加请求访问的Headers，请求返回451错误：Http status error [451]，非法的数据，Header中用户身份认证不正确，所以访问不到数据。解决方法是伪造Headers信息,主要是伪造Cookie中的数据
+//步骤如下：在lib下创建config文件夹，里面创建httpHeaders.dart文件，然后去极客时间首页复制Headers信息。
+
+
+
+
+
+
+/*07代码
 class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
@@ -76,6 +138,8 @@ class _HomePageState extends State<HomePage> {
 
   }
 }
+
+*/
 
 /* 05代码
 class HomePage extends StatelessWidget {

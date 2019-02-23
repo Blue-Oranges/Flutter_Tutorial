@@ -88,3 +88,5 @@ class IndexPage extends StatelessWidget {
   }
 }
 */
+
+//每个*.dart文件都是一个类，或者说可以在里面放一个Widget对象，类似于C语言中的*.c、C++中的*.cpp、java和C#中的*.class文件一样
