@@ -44,7 +44,7 @@ class ContainerDefaultB extends StatelessWidget {
       constraints: BoxConstraints.expand(
         height: Theme.of(context).textTheme.display1.fontSize * 1.1 + 200.0,
       ),
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(20.0),
       color: Colors.teal.shade700,
       alignment: Alignment.center,
       child: Text('Hello World',

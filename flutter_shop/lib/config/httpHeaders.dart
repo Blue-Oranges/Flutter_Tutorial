@@ -1,6 +1,6 @@
 //复制极客时间首页的F12中的Headers信息：F12-点击Clear-刷新页面-找到请求页面加载的信息Network-找到XHR（XMLHttpRequest）-找到newAll（所有新加载的信息）-找到Headers-找到Request Headers-复制下面所有信息，主要是Cookie信息-然后去homePage中请求方法中添加Headers信息：dio.options.headers =httpHeaders;
 //XHR： XMLHttpRequest 是一种浏览器API，可以同步或异步地返回 Web 服务器的响应，并且能够以文本或者一个 DOM 文档的形式返回内容。https://www.cnblogs.com/syfwhu/p/6116323.html
-//申明请求头常量，一堆Json格式的数据              
+//申明请求头常量，一堆Json格式的数据，其实是dart语言中的Map 类型              
 const httpHeaders = {
   'Accept': 'application/json, text/plain, */*',
   'Accept-Encoding': 'gzip, deflate, br',

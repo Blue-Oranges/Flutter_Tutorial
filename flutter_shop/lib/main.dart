@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
     return Container(
       child:MaterialApp(
         title: "百姓生活+",
-        debugShowCheckedModeBanner:false,
+        debugShowCheckedModeBanner:false,//在MaterialApp初始化的时候去除右上角Debug标签，设置debugShowCheckedModeBanner: false即可
         theme: ThemeData(
           primaryColor: Colors.pink,
         ),
@@ -25,7 +25,9 @@ flutter开发准备阶段
 VS Code安装Flutter、Dart插件，安装Awesome Flutter Snippets快捷生成代码插件
 
 阿里镜像：
-
+		maven{ url 'https://maven.aliyun.com/repository/google' }
+    maven{ url 'https://maven.aliyun.com/repository/jcenter' }
+    maven{url 'http://maven.aliyun.com/nexus/content/groups/public'}
 */
 
 

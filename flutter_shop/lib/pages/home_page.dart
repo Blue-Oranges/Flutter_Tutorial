@@ -1,4 +1,37 @@
 import 'package:flutter/material.dart';
+import '../service/service_method.dart';
+
+class HomePage extends StatefulWidget {
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  String homePageContent = '正在获取数据....';
+
+  @override
+  void initState() {
+    getHomePageContent().then((val){
+      setState(() {
+       homePageContent = val.toString(); 
+      });
+    });
+    super.initState();
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title:Text("百姓生活+")),
+      body: SingleChildScrollView( //与ListView控件冲突，不能同时使用
+        child: Text(homePageContent),
+      )
+    );
+  }
+}
+
+
+
+/*09代码
+import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';//引入dio包
 import '../config/httpHeaders.dart';//引入httpHeaders请求数据
 
@@ -57,9 +90,7 @@ class _HomePageState extends State<HomePage> {
 //在没有添加请求访问的Headers，请求返回451错误：Http status error [451]，非法的数据，Header中用户身份认证不正确，所以访问不到数据。解决方法是伪造Headers信息,主要是伪造Cookie中的数据
 //步骤如下：在lib下创建config文件夹，里面创建httpHeaders.dart文件，然后去极客时间首页复制Headers信息。
 
-
-
-
+*/
 
 
 /*07代码
