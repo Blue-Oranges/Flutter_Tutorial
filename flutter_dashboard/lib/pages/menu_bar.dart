@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../themes/colors.dart';
+import './setting.dart';
+
 class MenuBar extends StatelessWidget {
   final isFolded;
   MenuBar({this.isFolded});
@@ -26,9 +28,17 @@ class MenuBar extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 10.0),
             width: 50.0,
             height: 50.0,
+            child: IconButton(
+              icon: Icon(null),
+              tooltip: '按钮被点击！',
+              onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Setting()));},
+            ),
             decoration: BoxDecoration(
               color: getRandomColor(),
-              borderRadius: BorderRadius.all(Radius.circular(20.0))
+              image: DecorationImage(
+                image: AssetImage('images/ico' + index.toString() + '.ico')
+              ),
+              borderRadius: BorderRadius.all(Radius.circular(20.0)),
             ),
           ),
         );

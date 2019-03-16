@@ -7,7 +7,7 @@ class BulletinBoard extends StatelessWidget {
     return Expanded(
         child:Container(
         color: lightGrey,
-        padding: EdgeInsets.all(20.0),
+        padding: EdgeInsets.only(top: 20.0,left: 20.0,right: 20.0),
         child:ListView.separated(
         itemBuilder: (BuildContext context,int index){
         return Center(
@@ -15,6 +15,10 @@ class BulletinBoard extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 10.0),
             height: 200.0,
             decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('images/img' + index.toString() + '.png'),
+                fit: BoxFit.fill
+              ),
               color: getRandomColor(),
               borderRadius: BorderRadius.all(Radius.circular(20.0))
             ),
@@ -24,7 +28,7 @@ class BulletinBoard extends StatelessWidget {
       separatorBuilder: (BuildContext context,int index){
         return SizedBox(height: 30.0,);
       },
-      itemCount: 3,
+      itemCount: 9,
       )
         )
     );
