@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../themes/colors.dart';
 import './setting.dart';
+import './backdrop_filter.dart';
 
 class MenuBar extends StatelessWidget {
   final isFolded;
@@ -31,7 +32,7 @@ class MenuBar extends StatelessWidget {
             child: IconButton(
               icon: Icon(null),
               tooltip: '按钮被点击！',
-              onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Setting()));},
+              onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => FrostedDemo()));},
             ),
             decoration: BoxDecoration(
               color: getRandomColor(),

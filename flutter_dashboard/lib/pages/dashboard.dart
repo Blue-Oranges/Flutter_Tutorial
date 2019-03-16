@@ -5,6 +5,7 @@ import './trivial_details.dart';
 import './bolgs.dart';
 import './news.dart';
 import './setting.dart';
+import 'dart:ui';
 
 class Dashboard extends StatelessWidget{
   @override
@@ -30,9 +31,16 @@ class Dashboard extends StatelessWidget{
       ),
 
       drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
+        //毛玻璃特效未完成，待重写
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+          child: Container(
+            decoration: BoxDecoration(
+            color: Colors.grey.shade200.withOpacity(0.5)
+            ),
+            child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
             userHeader,
             ListTile(title: Text('Home'),
             leading: CircleAvatar(child: Icon(Icons.home,),),
@@ -58,6 +66,8 @@ class Dashboard extends StatelessWidget{
             Divider(color: Colors.black26,),
           ],
         ),
+        ),
+        ),
       ),
     );
   }
@@ -67,7 +77,7 @@ Widget userHeader = UserAccountsDrawerHeader(
     accountEmail: Text('Email：ckjbug@gmail.com'),
     currentAccountPicture: CircleAvatar(
       backgroundImage: AssetImage('images/li.jpg'),
-      backgroundColor: Colors.pink,
+      //backgroundColor: Colors.pink,
       radius: 35.0,
       ),
       decoration: BoxDecoration(
@@ -75,6 +85,6 @@ Widget userHeader = UserAccountsDrawerHeader(
           fit: BoxFit.fill,
           image: AssetImage('images/bg.png')
         ),
-        color: Colors.black26,
+        //color: Colors.black26,
       ),
     );
