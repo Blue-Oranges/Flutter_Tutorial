@@ -35,6 +35,9 @@ Flutter是谷歌的移动应用SDK，用于短时间内在iOS和Android上制作
 
 [Flutter视频教程（Bilibli）](http://space.bilibili.com/29302915/favlist?fid=2994157)
 
+[Flutter开源包（官网汇总）](https://pub.dartlang.org/packages/)
+
+[Flutter App汇总（开源学习Demo）](https://itsallwidgets.com/)
 
 [技术胖Flutter免费视频教程](https://jspang.com)
 
