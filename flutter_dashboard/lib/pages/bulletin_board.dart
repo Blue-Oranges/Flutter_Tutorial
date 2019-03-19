@@ -30,7 +30,7 @@ class BulletinBoard extends StatelessWidget {
       },
       itemCount: 9,
       )
-        )
+      )
     );
 
   }
