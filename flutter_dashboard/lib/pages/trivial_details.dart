@@ -65,14 +65,97 @@ class TrivialDetails extends StatelessWidget {
                 child: Card(
                   margin: EdgeInsets.only(top:20.0),
                   color: getRandomColor(),
-                  child: Text('This is Data UI'),
+                  child: Column(
+                    children: <Widget>[
+                      Text('This is Data UI',textAlign: TextAlign.center,),
+                      Table(
+                        border: TableBorder.all(color: Colors.white),
+                        children: [
+                          TableRow(
+                            children: [
+                              Container(
+                                color: getRandomColor(),
+                                width: 50,
+                                height: 50,
+                              ),
+                              Container(
+                                color: getRandomColor(),
+                                width: 50,
+                                height: 50,
+                              ),
+                            ]
+                          ),
+                          TableRow(
+                            children: [
+                              Container(
+                                color: getRandomColor(),
+                                width: 50,
+                                height: 50,
+                              ),
+                              Container(
+                                color: getRandomColor(),
+                                width: 50,
+                                height: 50,
+                              ),
+                            ]
+                          ),
+                        ],
+                      ),
+                    ],
+                  )
                 ),
               ),
               Text('功不唐捐',style: TextStyle(fontWeight: FontWeight.bold),),
+              Container(
+                width: 300,
+                height: 300,
+                child: Card(
+                  margin: EdgeInsets.only(top:20.0),
+                  color: getRandomColor(),
+                  child: MyFadeIn()
+                ),
+              ),
             ],
           )
         ],
       ),
+    );
+  }
+}
+
+
+class MyFadeIn extends StatefulWidget {
+  final Widget child;
+
+  MyFadeIn({Key key, this.child}) : super(key: key);
+
+  _MyFadeInState createState() => _MyFadeInState();
+}
+class _MyFadeInState extends State<MyFadeIn> with SingleTickerProviderStateMixin{ //使用FadeTransition小部件实现简单的转场（淡入淡出效果）
+  AnimationController _controller;
+  Animation _animation;
+  @override
+  void initState(){
+    _controller =AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 8),
+    );
+    _animation =Tween(
+      begin: 0.0,
+      end: 1.0
+    ).animate(_controller);
+  }
+  @override
+  void dispose(){
+    _controller.dispose();
+    super.dispose();
+  }
+  @override
+  Widget build(BuildContext context) {
+    _controller.forward();
+    return FadeTransition(
+      opacity: _animation,
+      child: Card(color: Colors.lightBlue,margin: EdgeInsets.all(10.0),)
     );
   }
 }
