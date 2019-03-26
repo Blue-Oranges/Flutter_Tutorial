@@ -2,8 +2,10 @@
 
 ### Flutter学习导航
 
-
-![](https://raw.githubusercontent.com/Blue-Oranges/Flutter_Tutorial/master/flutters.jpg)
+<br>
+<div align="center">
+    <img src="https://raw.githubusercontent.com/Blue-Oranges/Flutter_Tutorial/master/flutters.jpg"/>
+</div>
 
 Flutter简介：
 
