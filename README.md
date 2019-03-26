@@ -2,7 +2,8 @@
 
 ### Flutter学习导航
 
-![](https://raw.githubusercontent.com/fluttercommunity/community/resources/banner.png)
+
+![](https://raw.githubusercontent.com/Blue-Oranges/Flutter_Tutorial/master/flutters.jpg)
 
 Flutter简介：
 
